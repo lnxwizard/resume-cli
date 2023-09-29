@@ -1,12 +1,12 @@
 mod about;
+mod contact;
 
 use about::print_about;
 use colored::Colorize;
+use contact::print_contact;
 use inquire::Select;
-use std::process::exit;
 
 const NAME: &str = "Alper Akça";
-const GH_PROFILE: &str = "https://github.com/lnxwizard";
 
 fn main() {
     println!(
@@ -14,9 +14,9 @@ fn main() {
         NAME.bold().green()
     );
 
-    let options = vec!["About", "Skills", "Tools", "Contact", "Exit"];
+    let options: Vec<&str> = vec!["About", "Skills", "Tools", "Contact", "Exit"];
 
-    'main: loop {
+    loop {
         let choice = Select::new("What would you like to know about me?", options.clone()).prompt();
 
         match choice {
@@ -28,16 +28,18 @@ fn main() {
                 } else if choice == options[2] {
                     println!("Tools");
                 } else if choice == options[3] {
-                    println!("Contact");
+                    print_contact();
                 } else if choice == options[4] {
                     println!("Bye Bye...");
-                    exit(0);
+                    break;
                 }
             }
-            Err(_) => println!(
-                "{:?} is not a valid option, please select a valid option.",
-                choice
-            ),
+            Err(_) => {
+                println!(
+                    "{:?} is not a valid option, please select a valid option.",
+                    choice
+                );
+            }
         }
     }
 }

@@ -12,5 +12,5 @@ pub fn print_about() {
         "- I regularly write articles on {}.",
         "https://lnxwizard.github.io/blog".green()
     );
-    println!("- I'm From Turkey.");
+    println!("- I'm From {}.\n", "Turkey".bright_red());
 }
