@@ -14,9 +14,9 @@ use tools::print_tools;
 const NAME: &str = "Alper Akça";
 
 // file paths
-const SOCIAL_FILE_PATH: &str = "src/data/social.toml";
-const SKILLS_FILE_PATH: &str = "src/data/skills.toml";
-const TOOLS_FILE_PATH: &str = "src/data/tools.toml";
+const SOCIAL_FILE_PATH: &str = "data/social.toml";
+const SKILLS_FILE_PATH: &str = "data/skills.toml";
+const TOOLS_FILE_PATH: &str = "data/tools.toml";
 
 fn main() {
     println!(
