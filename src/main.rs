@@ -1,12 +1,20 @@
 mod about;
 mod contact;
+mod tools;
 
 use about::print_about;
 use colored::Colorize;
 use contact::print_contact;
 use inquire::Select;
+use std::fs;
+use tools::print_tools;
 
 const NAME: &str = "Alper Akça";
+
+// file paths
+const CONTACT_FILE_PATH: &str = "src/data/contact.toml";
+const SKILLS_FILE_PATH: &str = "src/data/skills.toml";
+const TOOLS_FILE_PATH: &str = "src/data/tools.toml";
 
 fn main() {
     println!(
@@ -26,19 +34,23 @@ fn main() {
                 } else if choice == options[1] {
                     println!("Skills");
                 } else if choice == options[2] {
-                    println!("Tools");
+                    let contents = fs::read_to_string(TOOLS_FILE_PATH)
+                        .expect("Couldn't find tools.toml file.");
+
+                    // print tools
+                    print_tools(&contents);
                 } else if choice == options[3] {
-                    print_contact();
+                    let contents = fs::read_to_string(CONTACT_FILE_PATH)
+                        .expect("Couldn't find skills.toml file.");
+
+                    print_contact(&contents)
                 } else if choice == options[4] {
                     println!("Bye Bye...");
                     break;
                 }
             }
             Err(_) => {
-                println!(
-                    "{:?} is not a valid option, please select a valid option.",
-                    choice
-                );
+                println!("{:?} is not a valid option.", choice);
             }
         }
     }
