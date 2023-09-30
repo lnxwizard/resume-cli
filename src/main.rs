@@ -1,20 +1,20 @@
 mod about;
-mod contact;
 mod skills;
+mod social;
 mod tools;
 
 use about::print_about;
 use colored::Colorize;
-use contact::print_contact;
 use inquire::Select;
 use skills::print_skills;
+use social::print_social;
 use std::fs;
 use tools::print_tools;
 
 const NAME: &str = "Alper Akça";
 
 // file paths
-const CONTACT_FILE_PATH: &str = "src/data/contact.toml";
+const SOCIAL_FILE_PATH: &str = "src/data/social.toml";
 const SKILLS_FILE_PATH: &str = "src/data/skills.toml";
 const TOOLS_FILE_PATH: &str = "src/data/tools.toml";
 
@@ -24,7 +24,7 @@ fn main() {
         NAME.bold().green()
     );
 
-    let options: Vec<&str> = vec!["About", "Skills", "Tools", "Contact", "Exit"];
+    let options: Vec<&str> = vec!["About", "Skills", "Tools", "Social", "Exit"];
 
     loop {
         let choice = Select::new("What would you like to know about me?", options.clone()).prompt();
@@ -46,11 +46,11 @@ fn main() {
                     // print tools
                     print_tools(&contents);
                 } else if choice == options[3] {
-                    let contents = fs::read_to_string(CONTACT_FILE_PATH)
-                        .expect("Couldn't find contact.toml file.");
+                    let contents = fs::read_to_string(SOCIAL_FILE_PATH)
+                        .expect("Couldn't find social.toml file.");
 
-                    // print contact information's
-                    print_contact(&contents)
+                    // print social information's
+                    print_social(&contents)
                 } else if choice == options[4] {
                     println!("Bye Bye...");
                     break;
