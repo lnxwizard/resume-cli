@@ -1,11 +1,13 @@
 mod about;
 mod contact;
+mod skills;
 mod tools;
 
 use about::print_about;
 use colored::Colorize;
 use contact::print_contact;
 use inquire::Select;
+use skills::print_skills;
 use std::fs;
 use tools::print_tools;
 
@@ -32,7 +34,11 @@ fn main() {
                 if choice == options[0] {
                     print_about();
                 } else if choice == options[1] {
-                    println!("Skills");
+                    let contents = fs::read_to_string(SKILLS_FILE_PATH)
+                        .expect("Couldn't find skills.toml file");
+
+                    // print skills
+                    print_skills(&contents);
                 } else if choice == options[2] {
                     let contents = fs::read_to_string(TOOLS_FILE_PATH)
                         .expect("Couldn't find tools.toml file.");
@@ -41,8 +47,9 @@ fn main() {
                     print_tools(&contents);
                 } else if choice == options[3] {
                     let contents = fs::read_to_string(CONTACT_FILE_PATH)
-                        .expect("Couldn't find skills.toml file.");
+                        .expect("Couldn't find contact.toml file.");
 
+                    // print contact information's
                     print_contact(&contents)
                 } else if choice == options[4] {
                     println!("Bye Bye...");
