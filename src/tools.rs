@@ -8,23 +8,20 @@ pub fn print_tools(data: &str) {
     println!(
         "\n{}: {}",
         "IDE's".bold(),
-        value["ide"].as_str().unwrap().bright_green()
+        value["ide"].as_str().unwrap().green()
     );
 
     // print text editors
     println!(
         "{}: {}",
         "Text Editors".bold(),
-        value["text_editor"].as_str().unwrap().bright_green()
+        value["text_editor"].as_str().unwrap().green()
     );
 
     // print version control systems
     println!(
         "{}: {}\n",
         "Version Control System".bold(),
-        value["version_control_system"]
-            .as_str()
-            .unwrap()
-            .bright_green()
+        value["version_control_system"].as_str().unwrap().green()
     );
 }
