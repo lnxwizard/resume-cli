@@ -6,7 +6,7 @@ pub fn print_tools(data: &str) {
 
     // print ide's
     println!(
-        "\n\n{}: {}",
+        "\n{}: {}",
         "IDE's".bold(),
         value["ide"].as_str().unwrap().bright_green()
     );

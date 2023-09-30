@@ -1,7 +1,7 @@
 use colored::Colorize;
 
 pub fn print_about() {
-    println!("\n\nI'm Software Developer, Pixel Artist and Linux Enthusiast.");
+    println!("\n-I'm Software Developer, Pixel Artist and Linux Enthusiast.");
     println!("- I’m currently working on some CLI tool projects.");
     println!("- I’m currently learning Go Programming Language and Rust.");
     println!(

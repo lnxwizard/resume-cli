@@ -4,7 +4,7 @@ use toml::Table;
 pub fn print_contact(data: &str) {
     let value: Table = data.parse::<Table>().expect("Couldn't read data.");
 
-    println!("\n\nYou can contact me at:");
+    println!("\nYou can contact me at:");
 
     // print e-mail
     println!(
@@ -21,7 +21,7 @@ pub fn print_contact(data: &str) {
     );
 
     println!(
-        "{}: {}",
+        "{}: {}\n",
         "Medium".bold(),
         value["medium"].as_str().unwrap().green()
     );
