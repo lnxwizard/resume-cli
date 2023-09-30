@@ -1,0 +1,3 @@
+ide = "RustRover & IntelliJ IDEA"
+text_editor = "VSCodium, Helix & Lapce"
+version_control_system = "Git"
